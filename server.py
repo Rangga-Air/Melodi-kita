@@ -210,6 +210,21 @@ class MelodiKitaHandler(SimpleHTTPRequestHandler):
                 }
             )
             return
+        if parsed.path == "/api/enrollments":
+    connection = get_db_connection()
+    enrollments = connection.execute(
+        """
+        SELECT id, full_name, email, phone, instrument, learning_mode, message, created_at
+        FROM enrollments
+        ORDER BY id DESC
+        """
+    ).fetchall()
+    connection.close()
+
+    self._send_json({
+        "enrollments": [dict(item) for item in enrollments]
+    })
+    return
 
         if parsed.path == "/api/site-stats":
             connection = get_db_connection()
