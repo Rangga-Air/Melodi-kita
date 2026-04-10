@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MelodiKita | Kursus Musik untuk Semua Usia</title>
+  <meta
+    name="description"
+    content="MelodiKita adalah kursus musik modern untuk anak, remaja, dan dewasa. Belajar vokal, piano, gitar, dan drum dengan mentor berpengalaman."
+  >
+  <meta name="theme-color" content="#16a34a">
+  <meta property="og:title" content="MelodiKita | Kursus Musik untuk Semua Usia">
+  <meta property="og:description" content="Belajar vokal, piano, gitar, dan drum dengan mentor berpengalaman dan jadwal fleksibel.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Manrope", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+          },
+          colors: {
+            forest: {
+              50: "#effcf4",
+              100: "#d7f7e3",
+              500: "#22c55e",
+              600: "#16a34a",
+              700: "#15803d",
+              900: "#0f3f25",
+            },
+            sand: "#f7f3ea",
+            ink: "#18211b",
+          },
+          boxShadow: {
+            soft: "0 24px 60px rgba(20, 40, 25, 0.12)",
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(34, 197, 94, 0.14), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(187, 247, 208, 0.45), transparent 26%),
+        #fcfbf7;
+    }
+
+    .grid-glow {
+      background-image:
+        linear-gradient(rgba(15, 63, 37, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 63, 37, 0.05) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    [data-animate].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .sr-only-field {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      [data-animate] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body class="text-ink antialiased">
+  <header class="sticky top-0 z-50 border-b border-white/50 bg-white/80 backdrop-blur">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+      <a href="#home" class="flex items-center gap-3">
+        <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-forest-600 font-display text-lg font-extrabold text-white">M</span>
+        <div>
+          <p class="font-display text-lg font-extrabold tracking-tight">MelodiKita</p>
+          <p class="text-xs text-slate-500">Kursus musik modern</p>
+        </div>
+      </a>
+
+      <div class="hidden items-center gap-8 md:flex">
+        <a href="#program" class="text-sm font-semibold text-slate-600 transition hover:text-forest-700">Program</a>
+        <a href="#keunggulan" class="text-sm font-semibold text-slate-600 transition hover:text-forest-700">Keunggulan</a>
+        <a href="#testimoni" class="text-sm font-semibold text-slate-600 transition hover:text-forest-700">Testimoni</a>
+        <a href="#daftar" class="rounded-full bg-forest-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-forest-700">Daftar Sekarang</a>
+      </div>
+
+      <button
+        id="menu-button"
+        type="button"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-700 md:hidden"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Buka menu navigasi"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+
+    <div id="mobile-menu" class="hidden border-t border-slate-100 bg-white px-6 py-4 md:hidden">
+      <div class="flex flex-col gap-4">
+        <a href="#program" class="text-sm font-semibold text-slate-700">Program</a>
+        <a href="#keunggulan" class="text-sm font-semibold text-slate-700">Keunggulan</a>
+        <a href="#testimoni" class="text-sm font-semibold text-slate-700">Testimoni</a>
+        <a href="#daftar" class="rounded-full bg-forest-600 px-5 py-3 text-center text-sm font-bold text-white">Daftar Sekarang</a>
+      </div>
+    </div>
+  </header>
+
+  <noscript>
+    <div class="border-b border-amber-200 bg-amber-50 px-6 py-3 text-sm font-semibold text-amber-800">
+      Aktifkan JavaScript agar testimoni dari database dan form pendaftaran online bisa bekerja penuh.
+    </div>
+  </noscript>
+
+  <main id="home">
+    <section class="relative overflow-hidden">
+      <div class="mx-auto grid max-w-7xl gap-14 px-6 py-16 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-24">
+        <div class="flex flex-col justify-center" data-animate>
+          <span class="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-forest-100 bg-white/80 px-4 py-2 text-sm font-semibold text-forest-700 shadow-sm">
+            Kursus musik untuk pemula sampai mahir
+          </span>
+          <h1 class="max-w-2xl font-display text-4xl font-extrabold leading-tight tracking-tight text-slate-900 md:text-6xl">
+            Temukan ritmemu dan mulai belajar musik dengan cara yang menyenangkan.
+          </h1>
+          <p class="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+            MelodiKita membantu anak, remaja, dan dewasa berkembang lewat kelas vokal, piano, gitar, dan drum bersama mentor berpengalaman serta kurikulum yang fleksibel.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+            <a
+              href="#daftar"
+              class="inline-flex items-center justify-center rounded-full bg-forest-600 px-7 py-4 text-base font-bold text-white shadow-lg shadow-forest-500/20 transition hover:-translate-y-0.5 hover:bg-forest-700"
+            >
+              Mulai Belajar
+            </a>
+            <a
+              href="#program"
+              class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-7 py-4 text-base font-bold text-slate-800 transition hover:border-forest-200 hover:text-forest-700"
+            >
+              Lihat Program
+            </a>
+          </div>
+
+          <div class="mt-10 flex flex-wrap items-center gap-6 text-sm text-slate-600">
+            <div class="flex items-center gap-2">
+              <span class="h-2.5 w-2.5 rounded-full bg-forest-500"></span>
+              Kelas privat & grup kecil
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="h-2.5 w-2.5 rounded-full bg-forest-500"></span>
+              Jadwal fleksibel
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="h-2.5 w-2.5 rounded-full bg-forest-500"></span>
+              Showcase rutin
+            </div>
+          </div>
+
+          <div class="mt-8 flex flex-wrap items-center gap-3 text-sm">
+            <span id="server-status" class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 font-semibold text-slate-600">
+              <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+              Memeriksa status server...
+            </span>
+          </div>
+        </div>
+
+        <div class="relative" data-animate>
+          <div class="grid-glow absolute inset-0 rounded-[2rem]"></div>
+          <div class="relative rounded-[2rem] border border-white/70 bg-white/85 p-5 shadow-soft sm:p-7">
+            <div class="rounded-[1.6rem] bg-sand p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-sm font-semibold uppercase tracking-[0.24em] text-forest-700">Kelas favorit</p>
+                  <h2 class="mt-2 font-display text-3xl font-extrabold text-slate-900">Piano Pop Essentials</h2>
+                </div>
+                <span class="rounded-full bg-white px-4 py-2 text-sm font-bold text-forest-700 shadow-sm">Offline & Online</span>
+              </div>
+
+              <div class="mt-8 grid gap-4 sm:grid-cols-2">
+                <div class="rounded-3xl bg-white p-5 shadow-sm">
+                  <p class="text-sm font-semibold text-slate-500">Materi</p>
+                  <p class="mt-2 text-2xl font-extrabold text-slate-900">12 modul</p>
+                  <p class="mt-2 text-sm text-slate-600">Teknik dasar, improvisasi, dan aransemen lagu populer.</p>
+                </div>
+                <div class="rounded-3xl bg-forest-900 p-5 text-white shadow-sm">
+                  <p class="text-sm font-semibold text-forest-100">Mentor rating</p>
+                  <p class="mt-2 text-2xl font-extrabold">4.9/5</p>
+                  <p class="mt-2 text-sm text-forest-50/90">Didampingi instruktur aktif yang sabar dan terstruktur.</p>
+                </div>
+              </div>
+
+              <div class="mt-6 rounded-3xl bg-white p-5 shadow-sm">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <p class="text-sm font-semibold text-slate-500">Pencapaian siswa</p>
+                    <p class="mt-1 text-lg font-extrabold text-slate-900">87% siswa tampil lebih percaya diri dalam 8 minggu</p>
+                  </div>
+                  <span class="rounded-full bg-forest-50 px-4 py-2 text-sm font-bold text-forest-700">Progress terpantau</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 grid gap-4 sm:grid-cols-3">
+              <div class="rounded-3xl border border-slate-200 bg-white p-5">
+                <p class="text-2xl font-extrabold text-slate-900">1.200+</p>
+                <p class="mt-1 text-sm text-slate-600">Siswa aktif dari berbagai usia</p>
+              </div>
+              <div class="rounded-3xl border border-slate-200 bg-white p-5">
+                <p class="text-2xl font-extrabold text-slate-900">25+</p>
+                <p class="mt-1 text-sm text-slate-600">Mentor profesional dan performer</p>
+              </div>
+              <div class="rounded-3xl border border-slate-200 bg-white p-5">
+                <p class="text-2xl font-extrabold text-slate-900">4 Cabang</p>
+                <p class="mt-1 text-sm text-slate-600">Tersedia di kota besar dan kelas online</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-6 pb-8 lg:px-8">
+      <div class="grid gap-4 rounded-[2rem] border border-forest-100 bg-white/80 p-6 shadow-sm md:grid-cols-3">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-forest-700">Kenapa MelodiKita</p>
+          <h2 class="mt-2 font-display text-2xl font-extrabold text-slate-900">Belajar lebih terarah, progres lebih terasa.</h2>
+        </div>
+        <div class="rounded-3xl bg-slate-50 p-5">
+          <p class="text-sm font-semibold text-slate-500">Metode personal</p>
+          <p class="mt-2 text-base text-slate-700">Target belajar disesuaikan dengan minat, usia, dan tempo masing-masing siswa.</p>
+        </div>
+        <div class="rounded-3xl bg-slate-50 p-5">
+          <p class="text-sm font-semibold text-slate-500">Pengalaman tampil</p>
+          <p class="mt-2 text-base text-slate-700">Ada mini concert dan showcase untuk melatih mental tampil sejak awal.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="keunggulan" class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+      <div class="max-w-2xl" data-animate>
+        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-forest-700">Keunggulan</p>
+        <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl">
+          Lingkungan belajar yang suportif dan hasil yang bisa dirasakan.
+        </h2>
+      </div>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm" data-animate>
+          <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-50 text-forest-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+            </svg>
+          </div>
+          <h3 class="mt-5 font-display text-2xl font-extrabold text-slate-900">Kurikulum bertahap</h3>
+          <p class="mt-3 text-slate-600">Setiap level punya indikator progres yang jelas, jadi siswa tahu apa yang sedang dipelajari dan apa target berikutnya.</p>
+        </article>
+
+        <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm" data-animate>
+          <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-50 text-forest-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5V4H2v16h5m10 0v-6a3 3 0 10-6 0v6m6 0H9" />
+            </svg>
+          </div>
+          <h3 class="mt-5 font-display text-2xl font-extrabold text-slate-900">Mentor aktif di industri</h3>
+          <p class="mt-3 text-slate-600">Belajar langsung dari musisi, pengajar, dan performer yang paham teknik sekaligus pengalaman panggung nyata.</p>
+        </article>
+
+        <article class="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm" data-animate>
+          <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-50 text-forest-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2a4 4 0 014-4h8m0 0l-3-3m3 3l-3 3M3 7h8a4 4 0 014 4v2" />
+            </svg>
+          </div>
+          <h3 class="mt-5 font-display text-2xl font-extrabold text-slate-900">Fleksibel untuk sibuk</h3>
+          <p class="mt-3 text-slate-600">Pilihan kelas offline dan online memudahkan siswa menjaga konsistensi latihan tanpa mengganggu aktivitas utama.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="program" class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between" data-animate>
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-forest-700">Program Unggulan</p>
+          <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl">
+            Pilih kelas sesuai instrumen dan gaya belajar.
+          </h2>
+        </div>
+        <p class="max-w-xl text-slate-600">
+          Semua program dirancang dengan kombinasi teknik, praktik lagu, dan pembentukan rasa percaya diri.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-6 lg:grid-cols-3">
+        <article class="rounded-[1.8rem] border border-slate-200 bg-white p-7 shadow-sm" data-animate>
+          <span class="rounded-full bg-forest-50 px-3 py-1 text-sm font-bold text-forest-700">Piano</span>
+          <h3 class="mt-5 font-display text-2xl font-extrabold text-slate-900">Piano for Modern Players</h3>
+          <p class="mt-3 text-slate-600">Cocok untuk pemula yang ingin cepat bisa memainkan lagu favorit sambil memahami teknik dasar dengan benar.</p>
+          <div class="mt-6 flex items-center justify-between text-sm font-semibold text-slate-500">
+            <span>8 sesi / bulan</span>
+            <span>Mulai Rp450rb</span>
+          </div>
+        </article>
+
+        <article class="rounded-[1.8rem] border border-slate-200 bg-white p-7 shadow-sm" data-animate>
+          <span class="rounded-full bg-forest-50 px-3 py-1 text-sm font-bold text-forest-700">Vokal</span>
+          <h3 class="mt-5 font-display text-2xl font-extrabold text-slate-900">Vocal Performance Lab</h3>
+          <p class="mt-3 text-slate-600">Latihan pernapasan, artikulasi, interpretasi lagu, dan teknik tampil agar suara lebih stabil dan ekspresif.</p>
+          <div class="mt-6 flex items-center justify-between text-sm font-semibold text-slate-500">
+            <span>Privat / grup</span>
+            <span>Mulai Rp400rb</span>
+          </div>
+        </article>
+
+        <article class="rounded-[1.8rem] border border-slate-200 bg-white p-7 shadow-sm" data-animate>
+          <span class="rounded-full bg-forest-50 px-3 py-1 text-sm font-bold text-forest-700">Gitar & Drum</span>
+          <h3 class="mt-5 font-display text-2xl font-extrabold text-slate-900">Band Starter Program</h3>
+          <p class="mt-3 text-slate-600">Belajar menjaga tempo, groove, dan kerja sama musik lewat sesi praktik yang seru dan terarah.</p>
+          <div class="mt-6 flex items-center justify-between text-sm font-semibold text-slate-500">
+            <span>Hybrid class</span>
+            <span>Mulai Rp425rb</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="testimoni" class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+      <div class="max-w-2xl" data-animate>
+        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-forest-700">Testimoni</p>
+        <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight text-slate-900 md:text-4xl">
+          Cerita siswa yang tumbuh bersama MelodiKita.
+        </h2>
+        <p class="mt-4 text-base leading-7 text-slate-600">
+          Testimoni di bawah ini dimuat langsung dari database, jadi kontennya bisa dikelola dan dikembangkan lebih lanjut.
+        </p>
+      </div>
+
+      <div id="testimonials-list" class="mt-10 grid gap-6 lg:grid-cols-3">
+        <div class="rounded-[1.8rem] border border-slate-200 bg-white p-7 shadow-sm" data-animate>
+          <p class="text-sm font-semibold text-slate-500">Memuat testimoni...</p>
+          <p class="mt-4 text-slate-600">Jalankan server Python untuk mengambil data dari database SQLite.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="daftar" class="mx-auto max-w-7xl px-6 py-8 pb-16 lg:px-8 lg:pb-24">
+      <div class="rounded-[2rem] bg-forest-900 px-6 py-10 text-white shadow-soft sm:px-10 lg:grid lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
+        <div class="max-w-2xl" data-animate>
+          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-forest-100">Siap mulai?</p>
+          <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight md:text-4xl">
+            Jadwalkan kelas trial dan simpan datamu langsung ke database MelodiKita.
+          </h2>
+          <p class="mt-4 text-base leading-7 text-forest-50/90">
+            Isi formulir singkat ini untuk konsultasi gratis. Data pendaftaran akan tersimpan ke SQLite agar mudah dikelola.
+          </p>
+
+          <div class="mt-8 grid gap-4 sm:grid-cols-2">
+            <a href="mailto:hello@melodikita.id" class="inline-flex items-center justify-center rounded-full bg-white px-7 py-4 text-base font-bold text-forest-900 transition hover:bg-sand">
+              hello@melodikita.id
+            </a>
+            <a href="https://wa.me/6281234567890" class="inline-flex items-center justify-center rounded-full border border-white/25 px-7 py-4 text-base font-bold text-white transition hover:bg-white/10">
+              Hubungi via WhatsApp
+            </a>
+          </div>
+
+          <div class="mt-8 rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+            <p class="text-sm font-semibold text-forest-100">Data yang tersimpan</p>
+            <p class="mt-2 text-sm leading-7 text-forest-50/85">
+              Nama, email, nomor WhatsApp, instrumen pilihan, mode belajar, dan pesan kebutuhan belajar.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-10 lg:mt-0" data-animate>
+          <form id="enrollment-form" class="rounded-[1.8rem] bg-white p-6 text-slate-900 shadow-lg sm:p-7">
+            <div class="mb-5 flex items-center justify-between gap-3 rounded-2xl bg-slate-50 px-4 py-3 text-sm text-slate-600">
+              <span class="font-semibold text-slate-700">Ringkasan data live</span>
+              <span id="live-data-summary">Memuat statistik...</span>
+            </div>
+
+            <label class="sr-only-field" aria-hidden="true">
+              Website
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </label>
+
+            <div class="grid gap-5 sm:grid-cols-2">
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700">Nama lengkap</span>
+                <input
+                  type="text"
+                  name="fullName"
+                  class="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-forest-500"
+                  placeholder="Contoh: Alya Putri"
+                  minlength="3"
+                  maxlength="80"
+                  autocomplete="name"
+                  required
+                >
+              </label>
+
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700">Email</span>
+                <input
+                  type="email"
+                  name="email"
+                  class="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-forest-500"
+                  placeholder="nama@email.com"
+                  maxlength="120"
+                  autocomplete="email"
+                  required
+                >
+              </label>
+
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700">No. WhatsApp</span>
+                <input
+                  type="tel"
+                  name="phone"
+                  class="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-forest-500"
+                  placeholder="08xxxxxxxxxx"
+                  inputmode="tel"
+                  minlength="9"
+                  maxlength="18"
+                  pattern="[0-9+\s-]{9,18}"
+                  autocomplete="tel"
+                  required
+                >
+              </label>
+
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700">Instrumen</span>
+                <select
+                  name="instrument"
+                  class="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-forest-500"
+                  required
+                >
+                  <option value="">Pilih instrumen</option>
+                  <option value="Piano">Piano</option>
+                  <option value="Vokal">Vokal</option>
+                  <option value="Gitar">Gitar</option>
+                  <option value="Drum">Drum</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="mt-5 block">
+              <span class="text-sm font-semibold text-slate-700">Mode belajar</span>
+              <select
+                name="learningMode"
+                class="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-forest-500"
+                required
+              >
+                <option value="">Pilih mode belajar</option>
+                <option value="Offline">Offline</option>
+                <option value="Online">Online</option>
+                <option value="Hybrid">Hybrid</option>
+              </select>
+            </label>
+
+            <label class="mt-5 block">
+              <span class="text-sm font-semibold text-slate-700">Pesan singkat</span>
+              <textarea
+                name="message"
+                rows="4"
+                class="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3 outline-none transition focus:border-forest-500"
+                placeholder="Ceritakan tujuan belajar atau jadwal yang kamu inginkan"
+                maxlength="500"
+              ></textarea>
+            </label>
+
+            <div class="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <button
+                id="submit-button"
+                type="submit"
+                class="inline-flex items-center justify-center rounded-full bg-forest-600 px-7 py-4 text-base font-bold text-white transition hover:bg-forest-700"
+              >
+                Kirim Pendaftaran
+              </button>
+              <p class="text-sm text-slate-500">Terhubung ke endpoint `POST /api/enrollments`</p>
+            </div>
+
+            <p id="form-status" class="mt-4 text-sm font-semibold text-slate-500" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white/80">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between lg:px-8">
+      <p>&copy; 2026 MelodiKita. Semua hak dilindungi.</p>
+      <div class="flex gap-5">
+        <a href="#home" class="transition hover:text-forest-700">Beranda</a>
+        <a href="#program" class="transition hover:text-forest-700">Program</a>
+        <a href="#testimoni" class="transition hover:text-forest-700">Testimoni</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>
